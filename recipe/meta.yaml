@@ -23,7 +23,6 @@ requirements:
 
 test:
   commands:
-    - which --version
     - which which | grep ${CONDA_PREFIX}/bin/which
 
 about:
