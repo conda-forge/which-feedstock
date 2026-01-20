@@ -8,19 +8,21 @@ package:
 source:
   url: https://carlowood.github.io/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f4a245b94124b377d8b49646bf421f9155d36aa7614b6ebf83705d3ffc76eaad
-
+  patches:
+    - which-2.21-path_max.patch   # resolve long pathname failures
+    
 build:
-  number: 1
+  number: 2
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - make
 
 test:
   commands:
-    - which --version
     - which which | grep ${CONDA_PREFIX}/bin/which
 
 about:

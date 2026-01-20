@@ -1,0 +1,46 @@
+diff -up which-2.21/which.c.me which-2.21/which.c
+--- which-2.21/which.c.me	2022-11-07 13:11:03.580798950 +0100
++++ which-2.21/which.c	2022-11-07 15:45:41.366085798 +0100
+@@ -19,10 +19,15 @@
+ #include "sys.h"
+ #include <stdio.h>
+ #include <ctype.h>
++#include <limits.h>
+ #include "getopt.h"
+ #include "tilde/tilde.h"
+ #include "bash.h"
+ 
++#ifndef PATH_MAX
++#define PATH_MAX 4096
++#endif
++
+ static const char *progname;
+ 
+ static void print_usage(FILE *out)
+@@ -63,7 +68,7 @@ static void print_fail(const char *name,
+   fprintf(stderr, "%s: no %s in (%s)\n", progname, name, path_list);
+ }
+ 
+-static char home[256];
++static char home[PATH_MAX];
+ static size_t homelen = 0;
+ 
+ static int absolute_path_given;
+@@ -163,7 +168,7 @@ static char *find_command_in_path(const
+   return (found);
+ }
+ 
+-static char cwd[256];
++static char cwd[PATH_MAX];
+ static size_t cwdlen;
+ 
+ static void get_current_working_directory(void)
+@@ -195,7 +200,7 @@ static void get_current_working_director
+ 
+ static char *path_clean_up(const char *path)
+ {
+-  static char result[256];
++  static char result[PATH_MAX];
+ 
+   const char *p1 = path;
+   char *p2 = result;
