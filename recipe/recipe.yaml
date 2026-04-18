@@ -20,6 +20,8 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler("cxx") }}
     - make
+    - pkg-config
+    - gnuconfig
 
 tests:
   - package_contents:
