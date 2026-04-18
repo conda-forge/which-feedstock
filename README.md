@@ -5,16 +5,19 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/which-feedstock
 
 Home: https://carlowood.github.io/which/
 
-Package license: GPL-3.0
+Package license: GPL-3.0-only
 
 Summary: Shows the full path of (shell) commands
 
-Which takes one or more arguments. For each of its arguments it prints
-to stdout the full path of the executables that would have been exe-
-cuted when this argument had been entered at the shell prompt. It does
-this by searching for an executable or script in the directories listed
-in the environment variable PATH using the same algorithm as bash(1).
+Development: https://cgit.git.savannah.gnu.org/cgit/which.git
 
+Documentation: https://carlowood.github.io/which/
+
+Which takes one or more arguments. For each of its arguments it prints
+to stdout the full path of the executables that would have been executed
+when this argument had been entered at the shell prompt. It does this by
+searching for an executable or script in the directories listed in the
+environment variable PATH using the same algorithm as bash(1).
 
 Current build status
 ====================
