@@ -10,6 +10,8 @@ package:
 source:
   url: https://carlowood.github.io/which/which-${{ version }}.tar.gz
   sha256: 5a28a4bdca58e3c6402204930b356efbce6554e49e4792711e7129f67757bc7a
+  patches:
+    - 0001-fix-getopt-prototype-for-modern-toolchains.patch
 
 build:
   number: 0
